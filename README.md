@@ -18,7 +18,22 @@ The objective of this analysis was to evaluate Superstore’s sales performance 
 
 The analysis is based on historical Superstore order-level sales data from 2011 to 2014, including information on sales, profit, quantity, discounts, product categories, customer segments, regions, and order dates. The data was cleaned and transformed to support accurate time-based and performance analysis.
 
-```dax
-Total Sales = SUM ( Sales[SalesAmount] )
-Profit Margin = DIVIDE ( [Total Profit], [Total Sales] )
+## Tools Used
+
+* Microsoft Excel: Data Source.
+* Microsoft Power BI: Data Cleaning, Transformation & Visualisation.
+
+## Key Performance Indicators (KPIs) & DAX Functions Used for Each
+
+* Total Sales: $ 2,297K
+```DAX
+Total Sales = SUM(Orders[Sales])
 ```
+* Total Profit: $ 286K 
+* Profit Margin: 12% 
+* Total Quantity Ordered: 38K 
+* Total Orders: 5K 
+* Average Order Value: $ 0.46K 
+* Average Discount: 15.62% 
+* Most Selling Region: West 
+* Worst Profitable Region: Central
