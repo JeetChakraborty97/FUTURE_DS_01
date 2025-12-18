@@ -9,3 +9,16 @@ Repository for Task 1 of the Data Science &amp; Analytics Internship at Future I
 <img width="1468" height="828" alt="Dashboard 3" src="https://github.com/user-attachments/assets/ca3ee748-5141-4b62-bceb-c4e0e21a4298" />
 
 # Overview
+
+## Business Objective
+
+The objective of this analysis was to evaluate Superstore’s sales performance across products, categories, regions, and time periods. The dashboard was designed to help stakeholders identify bestselling products, understand seasonal sales and profit trends, and determine which categories and regions contribute most to overall revenue and profitability.
+
+## Data Overview
+
+The analysis is based on historical Superstore order-level sales data from 2011 to 2014, including information on sales, profit, quantity, discounts, product categories, customer segments, regions, and order dates. The data was cleaned and transformed to support accurate time-based and performance analysis.
+
+```dax
+Total Sales = SUM ( Sales[SalesAmount] )
+Profit Margin = DIVIDE ( [Total Profit], [Total Sales] )
+```
