@@ -23,17 +23,95 @@ The analysis is based on historical Superstore order-level sales data from 2011 
 * Microsoft Excel: Data Source.
 * Microsoft Power BI: Data Cleaning, Transformation & Visualisation.
 
-## Key Performance Indicators (KPIs) & DAX Functions Used for Each
+## Key Performance Indicators (KPIs) & DAX Formulas Used for Each
 
 * Total Sales: $ 2,297K
 ```DAX
 Total Sales = SUM(Orders[Sales])
 ```
-* Total Profit: $ 286K 
-* Profit Margin: 12% 
-* Total Quantity Ordered: 38K 
-* Total Orders: 5K 
-* Average Order Value: $ 0.46K 
-* Average Discount: 15.62% 
-* Most Selling Region: West 
+* Total Profit: $ 286K
+```DAX
+Total Profit = SUM(Orders[Profit])
+``` 
+* Profit Margin: 12%
+```DAX
+Profit Margin % = DIVIDE(Orders[Total Profit],Orders[Total Sales],0)
+```
+* Total Quantity Ordered: 38K
+```DAX
+Total Quantity = SUM(Orders[Quantity])
+```
+* Total Orders: 5K
+```DAX
+Total Orders = DISTINCTCOUNT(Orders[Order ID])
+```
+* Average Order Value: $ 0.46K
+```DAX
+Average Order Value = DIVIDE(Orders[Total Sales],Orders[Total Orders],0)
+```
+* Average Discount: 15.62%
+```DAX
+Average Discount = AVERAGE(Orders[Discount])
+```
+* Most Selling Region: West
+```DAX
+Most Selling Region = 
+VAR RegionTable =
+    SUMMARIZE (
+        Orders,
+        Orders[Region],
+        "RegionSales", [Total Sales]
+    )
+RETURN
+    MAXX (
+        TOPN ( 1, RegionTable, [RegionSales], DESC ),
+        Orders[Region]
+    )
+```
 * Worst Profitable Region: Central
+```DAX
+Worst Profitable Region = 
+VAR RegionTable =
+    SUMMARIZE (
+        Orders,
+        Orders[Region],
+        "RegionProfit", [Total Profit]
+    )
+RETURN
+    CONCATENATEX (
+        TOPN ( 1, RegionTable, [RegionProfit], ASC ),
+        Orders[Region]
+    )
+```
+
+## Other DAX Formulas Used for Calculated Columns
+
+### 1. Order Year
+```DAX
+Order Year = YEAR(Orders[Order Date])
+```
+
+### 2. Month Year
+```DAX
+Month Year = FORMAT(Orders[Order Date], "MMM YYYY")
+```
+
+### 3. Order Month
+```DAX
+Order Month = FORMAT(Orders[Order Date], "MMM")
+```
+
+### 4. Order Month No.
+```DAX
+Order Month No. = MONTH(Orders[Order Date])
+```
+
+## Key Insights
+
+* Sales show strong seasonality, with a clear upward trend toward the end of the year. November 
+and December are the highest-performing months, indicating peak demand during the holiday 
+season.
+* The Consumer segment dominates sales, contributing over 50% of total revenue, while 
+Corporate and Home Office segments together account for the remaining share.
+* Technology is the highest revenue-generating category ($ 836K) and also delivers the highest 
+profit ($ 145K), making it the strongest overall performer.
