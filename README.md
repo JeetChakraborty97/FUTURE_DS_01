@@ -115,3 +115,14 @@ season.
 Corporate and Home Office segments together account for the remaining share.
 * Technology is the highest revenue-generating category ($ 836K) and also delivers the highest 
 profit ($ 145K), making it the strongest overall performer.
+* Furniture generates high sales but significantly lower profit, contributing only $ 18K in profit 
+despite substantial revenue, indicating margin pressure within this category.
+* Sub-category analysis reveals concentrated revenue drivers: 
+➢ Phones lead all sub-categories with approximately $ 330K in sales, making them the 
+single most important revenue contributor. 
+➢ Chairs follow closely with around $ 328K in sales, highlighting strong demand within the 
+Furniture category despite lower overall profitability. 
+➢ Storage ($ 224K) and Binders ($ 203K) are the top-performing Office Supplies sub
+categories, indicating consistent demand for operational essentials. 
+➢ Accessories and Copiers are notable Technology sub-categories, contributing 
+significant sales while supporting the category’s strong profit performance. 
